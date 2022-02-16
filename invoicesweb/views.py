@@ -15,9 +15,9 @@ class InvoiceView(viewsets.ModelViewSet):
     serializer_class = InvoiceSerializer
 
 
-def wszystkie_invoices(request):
-    wszystkie = Invoice.objects.all()
-    return render(request, 'invoices.html', {'invoices': wszystkie})
+def all_invoices(request):
+    all = Invoice.objects.all()
+    return render(request, 'invoices.html', {'invoices': all})
 
 @login_required
 def new_invoice(request):
@@ -29,7 +29,7 @@ def new_invoice(request):
         more = form_more.save()
         invoice.more = more
         invoice.save()
-        return redirect(wszystkie_invoices)
+        return redirect(all_invoices)
 
     return render(request, 'invoice_form.html', {'form': form_invoice, 'form_dodatkowe': form_dodatkowe, 'oceny': None, 'form_ocena': None, 'nowy': True})
 
@@ -45,23 +45,23 @@ def edit_invoice(request, id):
         dodatkowe = None
 
     form_invoice = InvoiceForm(request.POST or None, request.FILES or None, instance=invoice)
-    form_dodatkowe = MoreInfoForm(request.POST or None, instance=dodatkowe)
-    form_ocena = ScoreForm(None)
+    form_more = MoreInfoForm(request.POST or None, instance=dodatkowe)
+    form_score = ScoreForm(None)
 
     if request.method == 'POST':
         if 'gwiazdki' in request.POST:
-            ocena = form_ocena.save(commit=False)
-            ocena.invoice = invoice
-            ocena.save()
+            score = form_score.save(commit=False)
+            score.invoice = invoice
+            score.save()
 
-    if all((form_invoice.is_valid(), form_dodatkowe.is_valid())):
+    if all((form_invoice.is_valid(), form_more.is_valid())):
         invoice = form_invoice.save(commit=False)
         more = more.save()
         invoice.more = more
         invoice.save()
-        return redirect(wszystkie_invoices)
+        return redirect(all_invoices)
 
-    return render(request, 'invoice_form.html', {'form': form_invoice, 'form_more': form_dodatkowe, 'scores': scores, 'form_score': form_score, 'new': False})
+    return render(request, 'invoice_form.html', {'form': form_invoice, 'form_more': form_more, 'scores': scores, 'form_score': form_score, 'new': False})
 
 @login_required
 def delete_invoice(request, id):
@@ -69,7 +69,7 @@ def delete_invoice(request, id):
 
     if request.method == "POST":
         invoice.delete()
-        return redirect(wszystkie_invoices)
+        return redirect(all_invoices)
 
     return render(request, 'confirm.html', {'invoice': invoice})
 

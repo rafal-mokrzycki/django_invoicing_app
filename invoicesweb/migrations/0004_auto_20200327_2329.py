@@ -7,12 +7,12 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('filmyweb', '0003_auto_20200309_2211'),
+        ('invoicesweb', '0003_auto_20200309_2211'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='DodatkoweInfo',
+            name='MoreInfo',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('czas_trwania', models.PositiveSmallIntegerField(default=0)),
@@ -20,8 +20,8 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='film',
-            name='dodatkowe',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='filmyweb.DodatkoweInfo'),
+            model_name='invoice',
+            name='more',
+            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='invoicesweb.MoreInfo'),
         ),
     ]

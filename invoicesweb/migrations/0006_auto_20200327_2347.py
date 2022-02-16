@@ -6,22 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('filmyweb', '0005_auto_20200327_2340'),
+        ('invoicesweb', '0005_auto_20200327_2340'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='dodatkoweinfo',
+            model_name='moreinfo',
             name='gatunek',
             field=models.PositiveSmallIntegerField(choices=[(2, 'Komedia'), (3, 'Sci-fi'), (4, 'Drama'), (1, 'Horror'), (0, 'Inne')], default=0),
         ),
         migrations.CreateModel(
-            name='Aktor',
+            name='Actor',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('imie', models.CharField(max_length=32)),
                 ('nazwisko', models.CharField(max_length=32)),
-                ('filmy', models.ManyToManyField(to='filmyweb.Film')),
+                ('invoices', models.ManyToManyField(to='invoicesweb.Invoice')),
             ],
         ),
     ]
