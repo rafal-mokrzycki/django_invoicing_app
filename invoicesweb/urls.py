@@ -1,9 +1,9 @@
 from django.urls import path
-from invoicesweb.views import wszystkie_filmy, nowy_film, edytuj_film, usun_film
+from invoicesweb.views import all_invoices, new_invoice, edit_invoice, delete_invoice
 
 urlpatterns = [
-    path('wszystkie/', wszystkie_filmy, name="wszystkie_filmy"),
-    path('nowy/', nowy_film, name="nowy_film"),
-    path('edytuj/<int:id>/', edytuj_film, name="edytuj_film"),
-    path('usun/<int:id>/', usun_film, name="usun_film"),
+    path('all/', all_invoices, name="all_invoices"),
+    path('new/', new_invoice, name="new_invoice"),
+    path('edit/<int:id>/', edit_invoice, name="edit_invoice"),
+    path('delete/<int:id>/', delete_invoice, name="delete_invoice"),
 ]

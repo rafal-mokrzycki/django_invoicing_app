@@ -31,11 +31,11 @@ class Invoice(models.Model):
 class Score(models.Model):
     recenzja = models.TextField(default="", blank=True)
     gwiazdki = models.PositiveSmallIntegerField(default=5)
-    film = models.ForeignKey(Invoice, on_delete=models.CASCADE)
+    invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
 
 class Actor(models.Model):
     imie = models.CharField(max_length=32)
     nazwisko = models.CharField(max_length=32)
-    filmy = models.ManyToManyField(Invoice, related_name="aktorzy")
+    invoices = models.ManyToManyField(Invoice, related_name="actors")
 
 

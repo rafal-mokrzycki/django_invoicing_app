@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class InvoiceswebConfig(AppConfig):
-    name = 'filmyweb'
+    name = 'invoicesweb'

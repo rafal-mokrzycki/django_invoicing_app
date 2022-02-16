@@ -8,11 +8,11 @@ from invoicesweb.views import UserView, InvoiceView
 
 router = routers.DefaultRouter()
 router.register(r'users', UserView)
-router.register(r'invoices', FilmView)
+router.register(r'invoices', InvoiceView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('filmy/', include('invoicesweb.urls')),
+    path('invoices/', include('invoicesweb.urls')),
     path('login/', auth_views.LoginView.as_view(), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
     path('', include(router.urls)),

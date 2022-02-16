@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Film, DodatkoweInfo, Ocena, Aktor
+from .models import Invoice, MoreInfo, Score, Actor
 
-# admin.site.register(Film)
+# admin.site.register(Invoice)
 
 @admin.register(Invoice)
 class InvoiceAdmin(admin.ModelAdmin):

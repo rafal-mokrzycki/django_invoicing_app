@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Film, DodatkoweInfo, Ocena
+from .models import Invoice, MoreInfo, Score
 
 class InvoiceForm(ModelForm):
     class Meta:
