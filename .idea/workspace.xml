@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a6cec5-b3f4-45d1-aff5-2eec547deb11" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/invoicesweb/migrations/0008_rename_tytul_invoice_invoice_number_and_more.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoicesweb/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoicesweb/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoicesweb/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoicesweb/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/film_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/film_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/filmy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filmy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/glowny.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/glowny.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/potwierdz.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/potwierdz.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645096948183</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="tytul changed into invoice_number">
+      <created>1645106607427</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1645106607427</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -95,6 +97,7 @@
     <MESSAGE value="initial commit 4" />
     <MESSAGE value="adding more functionalities to REST API" />
     <MESSAGE value="adding more functionalities to REST API 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding more functionalities to REST API 2" />
+    <MESSAGE value="tytul changed into invoice_number" />
+    <option name="LAST_COMMIT_MESSAGE" value="tytul changed into invoice_number" />
   </component>
 </project>

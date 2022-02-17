@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='invoice',
-            name='rok',
+            name='contractor_tax_number',
             field=models.PositiveSmallIntegerField(default=2000),
         ),
         migrations.AlterField(

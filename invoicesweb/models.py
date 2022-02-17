@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 class MoreInfo(models.Model):
     GATUNEK = {
         (0, 'Inne'),
@@ -13,8 +15,9 @@ class MoreInfo(models.Model):
     gatunek = models.PositiveSmallIntegerField(default=0, choices=GATUNEK)
 
 class Invoice(models.Model):
-    invoice_number = models.CharField(max_length=64, blank=False, unique=True)
-    rok = models.PositiveSmallIntegerField(default=2000)
+    # invoice_number = models.CharField(max_length=64, blank=False, unique=True)
+    invoice_number = models.CharField() # TODO: add a custom class
+    contractor_tax_number = models.PositiveIntegerField(default=99999999999) # TODO: add a custom class checcking for NIP or PESEL pattern
     opis = models.TextField(default="")
     premiera = models.DateField(null=True, blank=True)
     imdb_rating = models.DecimalField(max_digits=4, decimal_places=2,
@@ -23,10 +26,10 @@ class Invoice(models.Model):
     dodatkowe = models.OneToOneField(MoreInfo, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return self.tytul_z_rokiem()
+        return self.tytul_z_contractor_tax_numberiem()
 
-    def tytul_z_rokiem(self):
-        return "{} ({})".format(self.invoice_number, self.rok)
+    def tytul_z_contractor_tax_numberiem(self):
+        return "{} ({})".format(self.invoice_number, self.contractor_tax_number)
 
 class Score(models.Model):
     recenzja = models.TextField(default="", blank=True)
