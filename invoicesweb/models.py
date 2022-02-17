@@ -13,7 +13,7 @@ class MoreInfo(models.Model):
     gatunek = models.PositiveSmallIntegerField(default=0, choices=GATUNEK)
 
 class Invoice(models.Model):
-    tytul = models.CharField(max_length=64, blank=False, unique=True)
+    invoice_number = models.CharField(max_length=64, blank=False, unique=True)
     rok = models.PositiveSmallIntegerField(default=2000)
     opis = models.TextField(default="")
     premiera = models.DateField(null=True, blank=True)
@@ -26,7 +26,7 @@ class Invoice(models.Model):
         return self.tytul_z_rokiem()
 
     def tytul_z_rokiem(self):
-        return "{} ({})".format(self.tytul, self.rok)
+        return "{} ({})".format(self.invoice_number, self.rok)
 
 class Score(models.Model):
     recenzja = models.TextField(default="", blank=True)

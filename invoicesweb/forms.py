@@ -4,7 +4,7 @@ from .models import Invoice, MoreInfo, Score
 class InvoiceForm(ModelForm):
     class Meta:
         model = Invoice
-        fields = ['tytul', 'opis', 'premiera', 'rok', 'imdb_rating', 'plakat']
+        fields = ['invoice_number', 'opis', 'premiera', 'rok', 'imdb_rating', 'plakat']
 
 
 class MoreInfoForm(ModelForm):

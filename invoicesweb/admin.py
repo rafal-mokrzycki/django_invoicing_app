@@ -5,11 +5,11 @@ from .models import Invoice, MoreInfo, Score, Actor
 
 @admin.register(Invoice)
 class InvoiceAdmin(admin.ModelAdmin):
-    # fields = ["tytul", "opis", "rok"]
+    # fields = ["invoice_number", "opis", "rok"]
     # exclude = ["opis"]
-    list_display = ["tytul", "imdb_rating", "rok"]
+    list_display = ["invoice_number", "imdb_rating", "rok"]
     list_filter = ("rok", "imdb_rating")
-    search_fields = ("tytul", "opis")
+    search_fields = ("invoice_number", "opis")
 
 admin.site.register(MoreInfo)
 admin.site.register(Score)
