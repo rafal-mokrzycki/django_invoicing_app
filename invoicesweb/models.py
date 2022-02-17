@@ -18,7 +18,7 @@ class MoreInfo(models.Model):
 
 class Invoice(models.Model):
     # invoice_number = models.CharField(max_length=64, blank=False, unique=True)
-    invoice_number = models.CharField(blank=False) # TODO: add a custom class
+    invoice_number = models.CharField(blank=False, max_length=12) # TODO: add a custom class
     contractor_tax_number = models.PositiveIntegerField(default=99999999999, blank=False) # TODO: add a custom class checcking for NIP or PESEL pattern
     opis = models.TextField(default="")
     issue_date = models.DateField(null=True, blank=False, default=datetime.datetime.today())
