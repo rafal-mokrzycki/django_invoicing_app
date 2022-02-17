@@ -22,7 +22,7 @@ def all_invoices(request):
 @login_required
 def new_invoice(request):
     form_invoice = InvoiceForm(request.POST or None, request.FILES or None)
-    form_dodatkowe = MoreInfoForm(request.POST or None)
+    form_more = MoreInfoForm(request.POST or None)
 
     if all((form_invoice.is_valid(), form_more.is_valid())):
         invoice = form_invoice.save(commit=False)
@@ -31,7 +31,7 @@ def new_invoice(request):
         invoice.save()
         return redirect(all_invoices)
 
-    return render(request, 'invoice_form.html', {'form': form_invoice, 'form_dodatkowe': form_dodatkowe, 'oceny': None, 'form_ocena': None, 'nowy': True})
+    return render(request, 'invoice_form.html', {'form': form_invoice, 'form_more': form_more, 'scores': None, 'form_score': None, 'new': True})
 
 @login_required
 def edit_invoice(request, id):
@@ -40,12 +40,12 @@ def edit_invoice(request, id):
     actors = invoice.actors.all()
 
     try:
-        dodatkowe = MoreInfo.objects.get(invoice=invoice.id)
+        more = MoreInfo.objects.get(invoice=invoice.id)
     except MoreInfo.DoesNotExist:
-        dodatkowe = None
+        more = None
 
     form_invoice = InvoiceForm(request.POST or None, request.FILES or None, instance=invoice)
-    form_more = MoreInfoForm(request.POST or None, instance=dodatkowe)
+    form_more = MoreInfoForm(request.POST or None, instance=more)
     form_score = ScoreForm(None)
 
     if request.method == 'POST':
