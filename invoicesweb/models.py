@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 
@@ -16,10 +18,10 @@ class MoreInfo(models.Model):
 
 class Invoice(models.Model):
     # invoice_number = models.CharField(max_length=64, blank=False, unique=True)
-    invoice_number = models.CharField() # TODO: add a custom class
-    contractor_tax_number = models.PositiveIntegerField(default=99999999999) # TODO: add a custom class checcking for NIP or PESEL pattern
+    invoice_number = models.CharField(blank=False) # TODO: add a custom class
+    contractor_tax_number = models.PositiveIntegerField(default=99999999999, blank=False) # TODO: add a custom class checcking for NIP or PESEL pattern
     opis = models.TextField(default="")
-    premiera = models.DateField(null=True, blank=True)
+    issue_date = models.DateField(null=True, blank=False, default=datetime.datetime.today())
     imdb_rating = models.DecimalField(max_digits=4, decimal_places=2,
                                       null=True, blank=True)
     plakat = models.ImageField(upload_to="plakaty", null=True, blank=True)

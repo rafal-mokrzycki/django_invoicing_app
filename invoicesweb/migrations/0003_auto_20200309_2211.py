@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='invoice',
-            name='premiera',
+            name='issue_date',
             field=models.DateField(blank=True, null=True),
         ),
     ]
