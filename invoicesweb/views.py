@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Invoice, MoreInfo, Score, Contractor
-from .forms import InvoiceForm, MoreInfoForm, ScoreForm
+from .models import Invoice, Contractor
+from .forms import InvoiceForm
 from django.contrib.auth.decorators import login_required
 from rest_framework import viewsets
 from django.contrib.auth.models import User
@@ -25,50 +25,31 @@ def all_invoices(request):
 @login_required
 def new_invoice(request):
     form_invoice = InvoiceForm(request.POST or None, request.FILES or None)
-    form_more = MoreInfoForm(request.POST or None)
 
-    if all((form_invoice.is_valid(), form_more.is_valid())):
+    if form_invoice.is_valid():
         invoice = form_invoice.save(commit=False)
-        more = form_more.save()
-        invoice.more = more
         invoice.save()
         return redirect(all_invoices)
 
-    return render(request, 'invoice_form.html', {'form': form_invoice, 'form_more': form_more, 'scores': None, 'form_score': None, 'new': True})
+    return render(request, 'invoice_form.html', {'form': form_invoice})
 
 @login_required
-def edit_invoice(request, id):
-    invoice = get_object_or_404(Invoice, pk=id)
-    scores = Score.objects.filter(invoice=invoice)
-    actors = invoice.actors.all()
-
-    try:
-        more = MoreInfo.objects.get(invoice=invoice.id)
-    except MoreInfo.DoesNotExist:
-        more = None
+def edit_invoice(request, invoice_number):
+    invoice = get_object_or_404(Invoice, pk=invoice_number)
 
     form_invoice = InvoiceForm(request.POST or None, request.FILES or None, instance=invoice)
-    form_more = MoreInfoForm(request.POST or None, instance=more)
-    form_score = ScoreForm(None)
 
-    if request.method == 'POST':
-        if 'gwiazdki' in request.POST:
-            score = form_score.save(commit=False)
-            score.invoice = invoice
-            score.save()
 
-    if all((form_invoice.is_valid(), form_more.is_valid())):
+    if form_invoice.is_valid():
         invoice = form_invoice.save(commit=False)
-        more = more.save()
-        invoice.more = more
         invoice.save()
         return redirect(all_invoices)
 
-    return render(request, 'invoice_form.html', {'form': form_invoice, 'form_more': form_more, 'scores': scores, 'form_score': form_score, 'new': False})
+    return render(request, 'invoice_form.html', {'form': form_invoice})
 
 @login_required
-def delete_invoice(request, id):
-    invoice = get_object_or_404(Invoice, pk=id)
+def delete_invoice(request, invoice_number):
+    invoice = get_object_or_404(Invoice, pk=invoice_number)
 
     if request.method == "POST":
         invoice.delete()
