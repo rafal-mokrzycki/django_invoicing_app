@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Invoice, MoreInfo, Score
+from .models import Invoice, MoreInfo, Score, Contractor
 from .forms import InvoiceForm, MoreInfoForm, ScoreForm
 from django.contrib.auth.decorators import login_required
 from rest_framework import viewsets
 from django.contrib.auth.models import User
-from .serializers import UserSerializer, InvoiceSerializer
+from .serializers import UserSerializer, InvoiceSerializer, ContractorSerializer
 
 class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -14,6 +14,9 @@ class InvoiceView(viewsets.ModelViewSet):
     queryset = Invoice.objects.all()
     serializer_class = InvoiceSerializer
 
+class ContractorView(viewsets.ModelViewSet):
+    queryset = Contractor.objects.all()
+    serializer_class = ContractorSerializer
 
 def all_invoices(request):
     all = Invoice.objects.all()

@@ -1,11 +1,15 @@
 from django.forms import ModelForm
-from .models import Invoice, MoreInfo, Score
+from .models import Invoice, Contractor, MoreInfo, Score
 
 class InvoiceForm(ModelForm):
     class Meta:
         model = Invoice
         fields = ['invoice_number', 'opis', 'issue_date', 'contractor_tax_number', 'imdb_rating', 'plakat']
 
+class ContractorForm(ModelForm):
+    class Meta:
+        model = Contractor
+        fields = ['first_name','last_name', 'company_name', 'street', 'house_number', 'flat_number', 'tax_number']
 
 class MoreInfoForm(ModelForm):
     class Meta:

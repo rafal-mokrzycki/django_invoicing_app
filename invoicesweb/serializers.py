@@ -1,13 +1,18 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Invoice
+from .models import Invoice, Contractor
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['id','username', 'email']
+        fields = ['issue_date','username', 'email']
 
 class InvoiceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Invoice
-        fields = ['id','invoice_number','contractor_tax_number', 'opis', 'issue_date']
+        fields = ['invoice_number','contractor_tax_number', 'opis', 'issue_date']
+
+class ContractorSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Contractor
+        fields = ['first_name','last_name', 'company_name', 'street', 'house_number', 'flat_number', 'tax_number']
