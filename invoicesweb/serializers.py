@@ -5,7 +5,7 @@ from .models import Invoice, Contractor
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['issue_date','username', 'email']
+        fields = ['username', 'email']
 
 class InvoiceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -15,4 +15,4 @@ class InvoiceSerializer(serializers.HyperlinkedModelSerializer):
 class ContractorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Contractor
-        fields = ['first_name','last_name', 'company_name', 'street', 'house_number', 'flat_number', 'tax_number']
+        fields = '__all__'#['first_name','last_name', 'company_name', 'street', 'house_number', 'flat_number', 'tax_number']

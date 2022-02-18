@@ -11,4 +11,4 @@ class InvoiceForm(ModelForm):
 class ContractorForm(ModelForm):
     class Meta:
         model = Contractor
-        fields = ['first_name','last_name', 'company_name', 'street', 'house_number', 'flat_number', 'tax_number']
+        fields =  '__all__'#['first_name','last_name', 'company_name', 'street', 'house_number', 'flat_number', 'tax_number']

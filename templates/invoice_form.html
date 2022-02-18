@@ -1,4 +1,4 @@
-{% extends 'glowny.html' %}
+{% extends 'main.html' %}
 {% block invoice_number %} Film form {% endblock %}
 
 {% block strona %}
@@ -12,8 +12,7 @@
 
         <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|bootstrap }}
-        {{ form_dodatkowe|bootstrap }}
+        {{ form }}
             {% if nowy %}
                 <button type="submit" class="btn btn-primary">New invoice</button>
             {% else %}
@@ -43,5 +42,5 @@
     {% endfor %}
 
 
-    <a href="{% url 'wszystkie_filmy' %}">Cofnij</a>
+    <a href="{% url 'wszystkie_invoices' %}">Cofnij</a>
 {% endblock %}

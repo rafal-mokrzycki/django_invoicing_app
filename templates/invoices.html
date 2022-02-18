@@ -1,4 +1,4 @@
-{% extends 'glowny.html' %}
+{% extends 'main.html' %}
 
 {% block invoice_number %} List filmów {% endblock %}
 
@@ -14,18 +14,18 @@
 
     <a href="{% url 'nowy_film' %}">Nowy film <i class="fas fa-plus-circle"></i></a>
 
-    {% if filmy|length == 0 %}
+    {% if invoices|length == 0 %}
         <h2>Brak filmów</h2>
     {% else %}
-        <!--<h2>Ilość filmów w BD: {{ filmy|length }}</h2>-->
+        <!--<h2>Ilość filmów w BD: {{ invoices|length }}</h2>-->
 
-        {% for film in filmy %}
+        {% for film in invoices %}
             <div class="card">
               <div class="card-body">
                   <img src="/media/{{film.plakat}}" class="film-plakat">
                   <div class="row">
                       <div class="col-9">
-                        <h5 class="card-title">{{ film }}</h5>
+                        <h5 class="card-title">{{ invoice }}</h5>
                     </div>
                     <div class="col-3">
                         <a href="{% url 'edytuj_film' film.id %}"><i class="fas fa-2x fa-edit film-icon"></i></a>
@@ -33,7 +33,7 @@
                     </div>
                   </div>
                   <div class="row">
-                      <p class="card-text opis">{{ film.opis }}</p>
+                      <p class="card-text opis">{{ invoice.contractor_tax_number }}</p>
                   </div>
 
 

@@ -1,4 +1,4 @@
-{% extends 'glowny.html' %}
+{% extends 'main.html' %}
 
 {% block tytul %} Zaloguj się {% endblock %}
 
@@ -9,7 +9,7 @@
         <h5 class="card-title">Zaloguj się</h5>
         <form method="post">
             {% csrf_token %}
-            {{ form|bootstrap }}
+            {{ form }}
             <button type="submit" class="btn btn-primary">Zaloguj <i class="fas fa-sign-in-alt"></i></button>
         </form>
       </div>

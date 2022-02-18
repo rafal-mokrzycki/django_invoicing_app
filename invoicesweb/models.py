@@ -20,8 +20,6 @@ class InvoiceNumber(models.CharField):
         super().__init__(*args, **kwargs)
 
 
-
-
 class Invoice(models.Model):
     invoice_type = models.CharField(choices=[
         (0, 'Normal'),
