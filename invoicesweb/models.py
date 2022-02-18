@@ -9,14 +9,17 @@ from django.core.validators import validate_email
 from django.core import validators
 from django.forms import CharField
 
+
 class InvoiceNumber(models.CharField):
 
     def __init__(self, *args, **kwargs):
-        kwargs['default'] = datetime.datetime.today().strftime('%Y/%m') + '/02' # TODO: \
+        kwargs['default'] = datetime.datetime.today().strftime('%Y/%m') + '/02'  # TODO: \
         # add method to calculate number of invoices
         kwargs['primary_key'] = True
         kwargs['max_length'] = 11
         super().__init__(*args, **kwargs)
+
+
 
 
 class Invoice(models.Model):
@@ -41,6 +44,34 @@ class Invoice(models.Model):
     issue_date = models.DateField(null=False,
                                   blank=False,
                                   default=datetime.datetime.today().strftime('%Y-%m-%d'))
+    #invoice_position = InvoicePosition()
+
+
+class InvoicePosition(models.Model):
+    product_or_service = models.TextField(primary_key=True, default="flower")
+    unit = models.CharField(choices=[
+        (0, 'pcs.'),
+        (1, 'serv.'),
+        (2, 'm'),
+        (3, 'l'),
+        (4, 'kg'),
+    ], default=0, null=False, blank=False, max_length=1)
+    price_per_unit_net = models.DecimalField(null=False, blank=False, max_digits=8,
+                                             decimal_places=2, default=0.00)
+    amount = models.PositiveSmallIntegerField(null=False, blank=False, default=1)
+    total_price_net = models.DecimalField(null=False, blank=False, max_digits=8,
+                                          decimal_places=2, default=0.00)
+    tax_rate = models.CharField(choices=[
+        (0, .23),
+        (1, .08),
+        (2, .05),
+        (3, .0),
+        (4, 'free'),
+    ], default=.23, null=False, blank=False, max_length=1)
+    total_price_gross = models.DecimalField(null=False, blank=False, max_digits=8,
+                                            decimal_places=2, default=0.00)
+    # Invoice = models.ForeignKey("Invoice", on_delete=models.CASCADE)
+
 
 
 
