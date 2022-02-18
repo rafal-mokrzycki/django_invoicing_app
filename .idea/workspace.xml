@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a6cec5-b3f4-45d1-aff5-2eec547deb11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/invoicesweb/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/invoicesweb/migrations/0002_invoice_contractor_tax_number_invoice_invoice_number.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/invoicesweb/migrations/0003_alter_invoice_contractor_tax_number.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/invoicesweb/migrations/0004_alter_invoice_contractor_tax_number_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/invoicesweb/migrations/0005_remove_invoice_id_contractor_contractor_tax_number_and_more.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoicesweb/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645207945802</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="invoice - automatic date added, automatic invoice_number improved partially 3">
+      <created>1645208674780</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1645208674780</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -165,6 +173,7 @@
     <MESSAGE value="contractor - new fields added" />
     <MESSAGE value="invoice - automatic date added, automatic invoice_number improved partially" />
     <MESSAGE value="invoice - automatic date added, automatic invoice_number improved partially 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="invoice - automatic date added, automatic invoice_number improved partially 2" />
+    <MESSAGE value="invoice - automatic date added, automatic invoice_number improved partially 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="invoice - automatic date added, automatic invoice_number improved partially 3" />
   </component>
 </project>

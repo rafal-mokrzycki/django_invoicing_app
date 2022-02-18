@@ -20,6 +20,12 @@ class InvoiceNumber(models.CharField):
 
 
 class Invoice(models.Model):
+    invoice_type = models.CharField(choices=[
+        (0, 'Normal'),
+        (1, 'Correction'),
+        (2, 'Proforma'),
+    ], default=0, null=False, blank=False, max_length=1)
+    # dodatkowe = models.OneToOneField(DodatkoweInfo, on_delete=models.CASCADE, null=True, blank=True)
     invoice_number = InvoiceNumber()
     contractor_tax_number = models.CharField(
         max_length=30,
