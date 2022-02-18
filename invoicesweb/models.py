@@ -52,7 +52,10 @@ class Contractor(models.Model):
     last_name = models.CharField(max_length=32)
     company_name = models.CharField(max_length=32)
     tax_number = models.PositiveIntegerField(default=99999999999,
-                                             blank=False, primary_key=True)  # TODO: add a custom class checcking for NIP or PESEL pattern
+                                             primary_key=True)  # TODO: add a custom class checcking for NIP or PESEL pattern
     street = models.CharField(max_length=32)
-    house_number = models.SmallIntegerField(blank=False)
+    house_number = models.SmallIntegerField()
     flat_number = models.SmallIntegerField(blank=True)
+    email = models.EmailField()
+    phone_number = models.PositiveSmallIntegerField()
+
