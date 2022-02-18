@@ -5,9 +5,7 @@ from .models import Invoice
 
 @admin.register(Invoice)
 class InvoiceAdmin(admin.ModelAdmin):
-    # fields = ["invoice_number", "opis", "contractor_tax_number"]
-    # exclude = ["opis"]
-    list_display = ["invoice_number", "contractor_tax_number"]
-    list_filter = ("contractor_tax_number",)
-    search_fields = ("invoice_number", "opis")
+    list_display = [ "issue_date"]
+    # list_filter = ("issue_date","invoice_number")
+    # search_fields = ("invoice_number", "issue_date")
 

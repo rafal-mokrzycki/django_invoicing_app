@@ -34,8 +34,8 @@ def new_invoice(request):
     return render(request, 'invoice_form.html', {'form': form_invoice})
 
 @login_required
-def edit_invoice(request, invoice_number):
-    invoice = get_object_or_404(Invoice, pk=invoice_number)
+def edit_invoice(request, id):
+    invoice = get_object_or_404(Invoice, pk=id)
 
     form_invoice = InvoiceForm(request.POST or None, request.FILES or None, instance=invoice)
 
@@ -48,8 +48,8 @@ def edit_invoice(request, invoice_number):
     return render(request, 'invoice_form.html', {'form': form_invoice})
 
 @login_required
-def delete_invoice(request, invoice_number):
-    invoice = get_object_or_404(Invoice, pk=invoice_number)
+def delete_invoice(request, id):
+    invoice = get_object_or_404(Invoice, pk=id)
 
     if request.method == "POST":
         invoice.delete()
