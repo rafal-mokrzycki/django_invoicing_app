@@ -9,21 +9,29 @@ from django.core.validators import validate_email
 from django.core import validators
 from django.forms import CharField
 
+class InvoiceNumber(models.CharField):
+
+    def __init__(self, *args, **kwargs):
+        kwargs['default'] = datetime.datetime.today().strftime('%Y/%m') + '/02' # TODO: \
+        # add method to calculate number of invoices
+        kwargs['primary_key'] = True
+        kwargs['max_length'] = 11
+        super().__init__(*args, **kwargs)
 
 
 class Invoice(models.Model):
-    invoice_number = models.CharField(max_length=32, default=1)
+    invoice_number = InvoiceNumber()
     contractor_tax_number = models.CharField(
         max_length=30,
         blank=False,
         validators=[
             RegexValidator(
-                regex='^[a-zA-Z0-9]*$',
-                message='Username must be Alphanumeric',
-                code='invalid_username'
+                regex='\d{10}|\d{11}',
+                message='Tax number consists of 10 or 11 characters',
+                code='invalid_tax_number'
             ),
         ]
-    )  # TODO: add a custom class checking for NIP or PESEL pattern
+    )
     issue_date = models.DateField(null=False,
                                   blank=False,
                                   default=datetime.datetime.today().strftime('%Y-%m-%d'))
@@ -34,9 +42,20 @@ class Contractor(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
     company_name = models.CharField(max_length=32)
-    tax_number = models.PositiveIntegerField(default=99999999999,
-                                             primary_key=True,
-                                             unique=True)  # TODO: add a custom class checking for NIP or PESEL pattern
+    tax_number = models.CharField(max_length=32, default='1')
+    contractor_tax_number = models.CharField(
+        max_length=30,
+        blank=False,
+        primary_key=True,
+        default=9999999999,
+        validators=[
+            RegexValidator(
+                regex='\d{10}|\d{11}',
+                message='Tax number consists of 10 or 11 characters',
+                code='invalid_tax_number'
+            ),
+        ]
+    )
     street = models.CharField(max_length=32)
     house_number = models.SmallIntegerField()
     flat_number = models.SmallIntegerField(blank=True)
