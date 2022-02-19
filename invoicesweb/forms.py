@@ -5,8 +5,8 @@ from .models import Invoice, Contractor
 class InvoiceForm(ModelForm):
     class Meta:
         model = Invoice
-        #fields = ['invoice_type', 'invoice_number', 'contractor_tax_number', 'issue_date', 'invoice_position']
-        fields = '__all__'
+        fields = ['invoice_type', 'invoice_number', 'contractor_tax_number', 'issue_date']#, 'invoice_position']
+        # fields = '__all__'
 
 class ContractorForm(ModelForm):
     class Meta:

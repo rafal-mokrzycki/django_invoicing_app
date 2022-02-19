@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19a6cec5-b3f4-45d1-aff5-2eec547deb11" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/invoicesweb/migrations/0003_alter_invoiceposition_product_or_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoices/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoices/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoices/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoices/wsgi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoicesweb/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoicesweb/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/migrations/0002_invoiceposition.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/migrations/0003_alter_invoiceposition_product_or_service.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/invoicesweb/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/film_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/invoice_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/filmy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/invoices.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/glowny.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/potwierdz.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/static/nowy.css" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/static/new.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoicesweb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/invoicesweb/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_static/moj.css" beforeDir="false" afterPath="$PROJECT_DIR$/my_static/my.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/invoice_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/invoice_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/invoices.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/invoices.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645215132945</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="trials on html/rest framework">
+      <created>1645220376540</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1645220376540</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -193,6 +207,7 @@
     <MESSAGE value="invoice - automatic date added, automatic invoice_number improved partially 3" />
     <MESSAGE value="invoice - choice of types ('normal', 'correction', 'proforma') added" />
     <MESSAGE value="invoice - trying to add invoice position" />
-    <option name="LAST_COMMIT_MESSAGE" value="invoice - trying to add invoice position" />
+    <MESSAGE value="trials on html/rest framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="trials on html/rest framework" />
   </component>
 </project>

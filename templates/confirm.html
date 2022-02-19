@@ -5,10 +5,10 @@
 {% block strona %}
     <div class="card" style="width: 32rem;">
       <div class="card-body">
-          <h5 class="card-title">Czy napewno chcesz usunac "{{ invoice.invoice_number }}" film?</h5>
+          <h5 class="card-title">Czy na pewno chcesz usunac "{{ invoice.invoice_number }}" invoice?</h5>
           <form method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Usun film</button>
+            <button type="submit" class="btn btn-danger">delete invoice</button>
         </form>
       </div>
     </div>

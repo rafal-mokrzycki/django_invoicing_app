@@ -1,5 +1,9 @@
 body {
     padding: 2rem;
+    color: blue;
+}
+h2 {
+    color: red;
 }
 .invoice-plakat {
     width: 150px;

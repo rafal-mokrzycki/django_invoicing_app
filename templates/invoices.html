@@ -1,35 +1,35 @@
 {% extends 'main.html' %}
 
-{% block invoice_number %} List filmów {% endblock %}
+{% block invoice_number %} List of invoices {% endblock %}
 
-{% block strona %}
+{% block page %}
     <div class="jumbotron">
         {% if user.is_authenticated %}
-        <h1 class="display-4"> Witaj {{ user.username }}</h1>
+        <h1 class="display-4"> Hello {{ user.username }}</h1>
         <a href="{% url 'logout' %}" class="btn btn-success">Logout <i class="fas fa-sign-out-alt"></i></a>
     {% else %}
         <a href="{% url 'login' %}" class="btn btn-success">Login <i class="fas fa-sign-in-alt"></i></a>
     {% endif %}
     </div>
 
-    <a href="{% url 'nowy_film' %}">Nowy film <i class="fas fa-plus-circle"></i></a>
+    <a href="{% url 'new_invoice' %}">new invoice <i class="fas fa-plus-circle"></i></a>
 
     {% if invoices|length == 0 %}
-        <h2>Brak filmów</h2>
+        <h2>No invoices</h2>
     {% else %}
-        <!--<h2>Ilość filmów w BD: {{ invoices|length }}</h2>-->
+        <!--<h2>Ilość invoiceów w BD: {{ invoices|length }}</h2>-->
 
-        {% for film in invoices %}
+        {% for invoice in invoices %}
             <div class="card">
               <div class="card-body">
-                  <img src="/media/{{film.plakat}}" class="film-plakat">
+                  <img src="/media/{{invoice.plakat}}" class="invoice-plakat">
                   <div class="row">
                       <div class="col-9">
                         <h5 class="card-title">{{ invoice }}</h5>
                     </div>
                     <div class="col-3">
-                        <a href="{% url 'edytuj_film' film.id %}"><i class="fas fa-2x fa-edit film-icon"></i></a>
-                        <a href="{% url 'usun_film' film.id %}"><i class="fas fa-2x fa-trash-alt film-icon"></i></a>
+                        <a href="{% url 'edit_invoice' invoice.invoice_number%}"><i class="fas fa-2x fa-edit invoice-icon"></i></a>
+                        <a href="{% url 'delete_invoice' invoice.invoice_number%}"><i class="fas fa-2x fa-trash-alt invoice-icon"></i></a>
                     </div>
                   </div>
                   <div class="row">
