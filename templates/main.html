@@ -1,5 +1,4 @@
-{% load rest_framework  %}
-<!--{% load static}-->
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,12 +6,29 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/fc894043df.js" crossorigin="anonymous"></script>
-<!--    <link rel="stylesheet" href="{% static 'new.css' %}">-->
-    <link rel="stylesheet" href="{% rest_framework 'new.css' %}">
-    <title>{% block invoice_number %} {% endblock %}</title>
+    <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
     {% block page %} {% endblock %}
 </body>
 </html>
+
+<!--&lt;!&ndash;{% load rest_framework  %}&ndash;&gt;-->
+<!--{% load my_static}-->
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <script src="https://kit.fontawesome.com/fc894043df.js" crossorigin="anonymous"></script>-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="{% static 'new.css' %}">&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="{% rest_framework 'main.css' %}">&ndash;&gt;-->
+<!--    <link rel="stylesheet" type="text/css" media="screen" href="{% my_static  'styles/main.css'%}">-->
+<!--    <title>{% block invoice_number %} {% endblock %}</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    {% block page %} {% endblock %}-->
+<!--</body>-->
+<!--</html>-->

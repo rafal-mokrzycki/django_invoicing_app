@@ -13,7 +13,7 @@ from django.forms import CharField
 class InvoiceNumber(models.CharField):
 
     def __init__(self, *args, **kwargs):
-        kwargs['default'] = datetime.datetime.today().strftime('%Y/%m') + '/02'  # TODO: \
+        kwargs['default'] = datetime.datetime.today().strftime('%Y_%m') + '_02'  # TODO: \
         # add method to calculate number of invoices
         kwargs['primary_key'] = True
         kwargs['max_length'] = 11

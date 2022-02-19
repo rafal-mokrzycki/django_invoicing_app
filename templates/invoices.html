@@ -1,45 +1,29 @@
 {% extends 'main.html' %}
 
-{% block invoice_number %} List of invoices {% endblock %}
+{% block title %} List of invoices {% endblock %}
 
 {% block page %}
-    <div class="jumbotron">
-        {% if user.is_authenticated %}
-        <h1 class="display-4"> Hello {{ user.username }}</h1>
-        <a href="{% url 'logout' %}" class="btn btn-success">Logout <i class="fas fa-sign-out-alt"></i></a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
     {% else %}
-        <a href="{% url 'login' %}" class="btn btn-success">Login <i class="fas fa-sign-in-alt"></i></a>
+        <a href="{% url 'login' %}">Login</a>
     {% endif %}
-    </div>
 
-    <a href="{% url 'new_invoice' %}">new invoice <i class="fas fa-plus-circle"></i></a>
+    <hr>
+
+    <a href="{% url 'new_invoice' %}">new invoice </a>
 
     {% if invoices|length == 0 %}
         <h2>No invoices</h2>
     {% else %}
-        <!--<h2>Ilość invoiceów w BD: {{ invoices|length }}</h2>-->
+        <h2> Number of invoices in DB: {{ invoices|length }}</h2>
 
         {% for invoice in invoices %}
-            <div class="card">
-              <div class="card-body">
-                  <img src="/media/{{invoice.plakat}}" class="invoice-plakat">
-                  <div class="row">
-                      <div class="col-9">
-                        <h5 class="card-title">{{ invoice }}</h5>
-                    </div>
-                    <div class="col-3">
-                        <a href="{% url 'edit_invoice' invoice.invoice_number%}"><i class="fas fa-2x fa-edit invoice-icon"></i></a>
-                        <a href="{% url 'delete_invoice' invoice.invoice_number%}"><i class="fas fa-2x fa-trash-alt invoice-icon"></i></a>
-                    </div>
-                  </div>
-                  <div class="row">
-                      <p class="card-text opis">{{ invoice.contractor_tax_number }}</p>
-                  </div>
+            <h3>{{ invoice }}</h3>
+            <p>{{ contractor_tax_number}}</p>
 
-
-
-              </div>
-            </div>
+            <a href="{% url 'edit_invoice' invoice.invoice_number%}">Edit</a>
+            <a href="{% url 'delete_invoice' invoice.invoice_number%}">Delete</a>
         {% endfor %}
     {% endif %}
 {% endblock %}

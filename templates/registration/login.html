@@ -4,14 +4,9 @@
 
 {% block strona %}
 
-    <div class="card" style="width: 26rem;">
-      <div class="card-body">
-        <h5 class="card-title">Zaloguj się</h5>
         <form method="post">
             {% csrf_token %}
             {{ form }}
-            <button type="submit" class="btn btn-primary">Zaloguj <i class="fas fa-sign-in-alt"></i></button>
+            <button type="submit"> Login </button>
         </form>
-      </div>
-    </div>
 {% endblock %}

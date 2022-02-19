@@ -1,46 +1,16 @@
 {% extends 'main.html' %}
+
 {% block invoice_number %} invoice form {% endblock %}
 
 {% block strona %}
-    <div class="card" style="width: 32rem; float: left; margin-right: 1rem;">
-      <div class="card-body">
-          {% if new %}
-                <h5 class="card-title">new invoice</h5>
-            {% else %}
-                <h5 class="card-title">Edutuj invoice</h5>
-            {% endif %}
-
-        <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-            {% if new %}
-                <button type="submit" class="btn btn-primary">New invoice</button>
-            {% else %}
-                <button type="submit" class="btn btn-primary">Edit invoice</button>
-            {% endif %}
+        {% if new %}
+            <button type="submit" class="btn btn-primary">New invoice</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary">Edit invoice</button>
+        {% endif %}
     </form>
-      </div>
-    </div>
-
-    {% if form_ocena %}
-    <div class="card" style="width: 32rem; float: left; margin-right: 1rem;">
-      <div class="card-body">
-          <h5 class="card-title">Ocen invoice</h5>
-
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form_ocena|bootstrap }}
-                <button type="submit" class="btn btn-primary">Oceń</button>
-        </form>
-      </div>
-    </div>
-    {% endif %}
-
-    {% for ocena in oceny %}
-        <h4>Gwiazdki: {{ocena.gwiazdki}}</h4>
-        <p>{{ocena.recenzja}}</p>
-    {% endfor %}
-
-
     <a href="{% url 'all_invoices' %}">Cofnij</a>
 {% endblock %}

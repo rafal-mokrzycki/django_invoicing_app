@@ -2,19 +2,3 @@ body {
     padding: 2rem;
     color: blue;
 }
-h2 {
-    color: red;
-}
-.invoice-plakat {
-    width: 150px;
-    float: left;
-}
-.invoice-icon {
-    font-size: 1.6rem;
-}
-.opis {
-    margin-left: 15px;
-}
-.card {
-    width: 36rem;
-}

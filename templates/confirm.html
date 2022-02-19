@@ -3,15 +3,10 @@
 {% block invoice_number %} Confirm {% endblock %}
 
 {% block strona %}
-    <div class="card" style="width: 32rem;">
-      <div class="card-body">
-          <h5 class="card-title">Czy na pewno chcesz usunac "{{ invoice.invoice_number }}" invoice?</h5>
-          <form method="post">
+    <h1>Are you sure you want to delete {{ invoice_number }}?</h1>
+        <form method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger">delete invoice</button>
+            <button type="submit">Delete invoice</button>
         </form>
-      </div>
-    </div>
-
-    <a href="{% url 'all_invoices' %}">Cofnij</a>
+    <a href="{% url 'all_invoices' %}">Undo</a>
 {% endblock %}
